@@ -32,8 +32,8 @@ export const addBookToRead = async (req, res) => {
         buyLink
     };
 
-    if (user.booksRead.length > 1) {
-        var bookExists = user.booksRead.some((bookRead) => bookRead.idGoogle == book.idGoogle);
+    if (user.booksToRead.length > 1) {
+        var bookExists = user.booksToRead.some((bookToRead) => bookToRead.idGoogle == book.idGoogle);
     }
     if (bookExists) {
         return res.status(400).json({ message: 'El libro ya ha sido agregado anteriormente' });
@@ -45,7 +45,7 @@ export const addBookToRead = async (req, res) => {
       savedBook = await Book.create(book);
     }
 
-    user.booksRead.push(savedBook);
+    user.booksToRead.push(savedBook);
     await user.save();
 
     res.status(200).json({ message: 'Libro agregado con éxito' });
