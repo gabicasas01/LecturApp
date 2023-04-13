@@ -45,17 +45,17 @@ export const getRecommendation = async (req, res) => {
         const book = response[0]
 
         return {
-          idGoogle: book.id,
+          idGoogle: book.idGoogle,
           title: book.title,
           subtitle: book.subtitle,
           authors: book.authors  || [],
           publisher: book.publisher,
-          genres: book.categories || [],
+          genres: book.genres || [],
           description: book.description  || "",
           publishedDate: book.publishedDate,
           pageCount: book.pageCount || "",
-          coverImage: book.thumbnail || "",
-          buyLink: book.previewLink,
+          coverImage: book.coverImage || "",
+          buyLink: book.buyLink,
         };
       });
 
