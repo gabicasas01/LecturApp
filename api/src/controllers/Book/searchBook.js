@@ -14,7 +14,7 @@ export const searchBooks = async (req, res) => {
       q: `intitle:${title}`,
       key: GOOGLE_BOOKS_KEY,
       orderBy: 'relevance',
-      maxResults: 40,
+      maxResults: 1,
     };
 
     if (author) {
@@ -39,9 +39,9 @@ export const searchBooks = async (req, res) => {
       buyLink: item.volumeInfo.previewLink,
     }));
     
-    res.status(200).send({ data })
+    return data
   } 
   catch (error) {
-    res.status(500).send(error.message);
+    return error.message
   }
 };
