@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
+import HomePage from './pages/HomePage.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1 className="text-3xl font-bold underline text-red-800">
-      Lectur-App
-    </h1>
+    <Provider store={store}>
+      <HomePage />
+    </Provider>
   )
 }
 
