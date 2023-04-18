@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 export const getRecommendation = async (req, res) => {
   try {
     const { preferences } = req.body;
-    
+
     const prompt = `Recommend only title of ten popular, relevant, well-rated, and best-seller books in genres such as ${preferences.genres.join(", ")} and similar.`;
 
     const response = await openai.createCompletion({
@@ -41,23 +41,23 @@ export const getRecommendation = async (req, res) => {
       )
     );
 
-      const recommendedBooks = bookDetailsResponses.map((response) => {
-        const book = response[0]
+    const recommendedBooks = bookDetailsResponses.map((response) => {
+      const book = response[0]
 
-        return {
-          idGoogle: book.idGoogle,
-          title: book.title,
-          subtitle: book.subtitle,
-          authors: book.authors  || [],
-          publisher: book.publisher,
-          genres: book.genres || [],
-          description: book.description  || "",
-          publishedDate: book.publishedDate,
-          pageCount: book.pageCount || "",
-          coverImage: book.coverImage || "",
-          buyLink: book.buyLink,
-        };
-      });
+      return {
+        idGoogle: book.idGoogle,
+        title: book.title,
+        subtitle: book.subtitle,
+        authors: book.authors || [],
+        publisher: book.publisher,
+        genres: book.genres || [],
+        description: book.description || "",
+        publishedDate: book.publishedDate,
+        pageCount: book.pageCount || "",
+        coverImage: book.coverImage || "",
+        buyLink: book.buyLink,
+      };
+    });
 
     res.status(200).send(recommendedBooks)
   } catch (error) {
