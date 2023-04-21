@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import store from './store/store.js';
 import BackgroundTemplate from './layouts/BackgroundTemplate.jsx';
 import HomeComponent from './components/HomeComponent.jsx';
-import CuestionaryComponent from './components/CuestionaryComponent.jsx'
+import CuestionaryInit from './components/CuestionaryInit.jsx'
+import CuestionaryGenres from './components/CuestionaryGenres.jsx'
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<BackgroundTemplate Component={HomeComponent}/>}></Route>
-          <Route exact path="/cuestionary" element={<BackgroundTemplate Component={CuestionaryComponent}/>} />
+          <Route exact path="/cuestionaryInit" element={<BackgroundTemplate Component={CuestionaryInit}/>} />
+          <Route exact path="/cuestionaryGenres" element={<BackgroundTemplate Component={CuestionaryGenres}/>} />
         </Routes>
       </Router>
     </Provider>

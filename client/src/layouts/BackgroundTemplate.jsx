@@ -6,7 +6,7 @@ const BackgroundTemplate = ({Component}) => {
     <div>
       <div className="min-h-screen w-full bg-cover bg-center relative bg-gradient-to-tr from-green-500 to-sky-600">
         <img src={backgroundImage} className="h-full w-full object-cover absolute mix-blend-overlay opacity-30"></img>
-        <div className="h-full relative flex flex-col items-center justify-center text-white text-center px-10 pt-14 pb-6 md:pt-28 md:pb-14">
+        <div className="h-full relative flex flex-col items-center justify-center text-white text-center px-10 py-14 md:py-28">
           <Component />
         </div>
       </div>
