@@ -11,6 +11,6 @@ export const getUser = async (req, res) => {
 
           res.status(200).send({ user })
     } catch (error) {
-        console.log(error.message)
+        res.status(500).json({ message: 'Ha ocurrido un error al buscar el usuario' });
     }
 }
