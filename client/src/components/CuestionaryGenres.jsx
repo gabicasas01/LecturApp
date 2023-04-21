@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategories } from '../store/actions/action'
@@ -6,7 +7,6 @@ import CategorySelect from './SelectCategories'
 
 function CuestionaryGenres() {
   const user = useSelector(state => state.user.user);
-  const categories = useSelector(state => state.books.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,24 +22,12 @@ function CuestionaryGenres() {
         <p className="text-base md:text-xl my-1 md:leading-relaxed">Por ejemplo, si te encanta Harry Potter, podrías buscar recomendaciones en los géneros de Fantasía y Ciencia Ficción.</p>
         <p className="text-base md:text-xl my-1 md:leading-relaxed">Así que, ¡adelante! Decime qué te gusta y juntos encontraremos tu próxima gran lectura!</p>
       </div>
-
-      {/* {categories ? categories.map(categorie => (
-        <div>
-          {categorie[0]}
-          <ul>
-            <li>
-              {categorie.map( c => (
-                c
-              ))}
-            </li>
-          </ul>
-        </div>
-      )) : null} */}
       <div className='text-black'>
         <CategorySelect />
       </div>
-
-
+      <Link to='/recommendations'>
+                <button className="text-base md:text-lg font-bold border-2 border-orange-700 bg-orange-600 hover:border-orange-800 rounded-lg py-2 px-6 my-4 md:my-8 mx-16 shadow-lg hover:scale-105">Buscar</button>
+      </Link>
     </>
   )
 }

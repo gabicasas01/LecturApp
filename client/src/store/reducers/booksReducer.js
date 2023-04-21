@@ -1,4 +1,4 @@
-import {FETCH_CATEGORIES_SUCCESS, FETCH_CATEGORIES_FAILURE} from '../actions/booksAction'
+import {FETCH_CATEGORIES_SUCCESS, FETCH_CATEGORIES_FAILURE} from '../actions/booksActions'
 
 const initialState = {
     user: {},
