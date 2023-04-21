@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategories } from '../store/actions/action'
@@ -25,9 +24,6 @@ function CuestionaryGenres() {
       <div className='text-black'>
         <CategorySelect />
       </div>
-      <Link to='/recommendations'>
-                <button className="text-base md:text-lg font-bold border-2 border-orange-700 bg-orange-600 hover:border-orange-800 rounded-lg py-2 px-6 my-4 md:my-8 mx-16 shadow-lg hover:scale-105">Buscar</button>
-      </Link>
     </>
   )
 }
