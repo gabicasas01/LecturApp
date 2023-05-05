@@ -12,7 +12,7 @@ export const postUserPreferences = (payload) => {
         const data = await axios.post('http://localhost:3001/recommendation', payload);
         dispatch({ 
           type: FETCH_RECOMMENDATION_SUCCESS, 
-          payload: data 
+          payload: data.data 
         });
 
       } catch (error) {

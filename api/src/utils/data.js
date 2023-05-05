@@ -1,6 +1,6 @@
 
 export const categories = [  
-    ["Misterio y suspense", "Thriller psicológico", "Novela policíaca", "Misterio y crimen"],
+    ["Misterio y suspense", "Thriller psicológico", "Novela policíaca", "Misterio", "Crimen"],
     ["Ciencia ficción y fantasía", "Ciencia ficción", "Fantasía", "Fantasía épica", "Distopía"],
     ["Negocios y finanzas", "Negocios internacionales", "Empresa", "Finanzas personales", "Economía", "Neuromarketing", "Trading"],
     ["Ficción", "Literatura clásica", "Novelas clásicas"],

@@ -12,15 +12,19 @@ export const getRecommendation = async (req, res) => {
 
     const prompt = `Recommend only title of ten popular, relevant, well-rated, and best-seller books in genres such as ${preferences.genres.join(", ")} and similar.`;
 
+    console.log('prompt', prompt)
+
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt,
-      temperature: 0.8,
+      temperature: 0.5,
       max_tokens: 400,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
     });
+
+    console.log('response.data.choices[0].text', response.data.choices[0].text)
 
     const books = response.data.choices[0].text
       .split("\n")
@@ -30,6 +34,8 @@ export const getRecommendation = async (req, res) => {
       const title = book.split('by')[0].substring(3);
       return title.replace(/\s/g, '+');
     });
+
+    console.log('bookTitles', bookTitles)
 
     const bookDetailsResponses = await Promise.all(
       bookTitles.map((book) =>
@@ -41,7 +47,7 @@ export const getRecommendation = async (req, res) => {
       )
     );
 
-    const recommendedBooks = bookDetailsResponses.map((response) => {
+    const recommendedBooks = bookDetailsResponses.filter((response) => response[0].idGoogle).map((response) => {
       const book = response[0]
 
       return {
@@ -58,6 +64,8 @@ export const getRecommendation = async (req, res) => {
         buyLink: book.buyLink,
       };
     });
+
+    console.log('recommendedBooks', recommendedBooks)
 
     res.status(200).send(recommendedBooks)
   } catch (error) {

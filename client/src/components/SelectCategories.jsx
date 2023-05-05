@@ -10,17 +10,12 @@ const CategorySelect = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('');
     const [subcategories, setSubcategories] = useState([]);
-
-
     const [state, setState] = useState({
         preferences: {
           genres: []
         }
       });
       
-
-    const [selectedSubcategory, setSelectedSubcategory] = useState([]);
-
     const handleCategoryChange = (e) => {
         const selectedCategory = e.target.value;
         const subcategories = categories.filter((category) => category[0] === selectedCategory);
@@ -53,6 +48,7 @@ const CategorySelect = () => {
     };
 
     const handleSearch = (e) => {
+        console.log('THIS IS STATE', state)
         dispatch(postUserPreferences(state))
     }
 
@@ -101,15 +97,10 @@ const CategorySelect = () => {
                     </div>
                 ))}
             </div>
-            <div>
             <Link to='/recommendations'>
                 <button onClick={handleSearch} className="text-base md:text-lg font-bold border-2 text-white border-orange-700 bg-orange-600 hover:border-orange-800 rounded-lg py-2 px-6 my-4 md:my-8 mx-16 shadow-lg hover:scale-105">Buscar</button>
             </Link>
-            </div>
-
-
         </div>
-
     );
 };
 
